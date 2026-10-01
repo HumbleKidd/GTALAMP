@@ -140,7 +140,7 @@
   <div class="wrap nav-inner">
     <a class="brand" href="#top"><span class="mark"><i class="fa-solid fa-bolt"></i></span> Opulent Lamp</a>
     <nav class="nav-links">
-      <a href="#places">Rooms</a>
+      <a href="#places">Scenes</a>
       <a href="#checkout">Checkout</a>
     </nav>
     <a class="btn" href="#checkout">Buy · $103</a>
@@ -162,7 +162,7 @@
       </div>
       <div class="hero-actions">
         <a class="btn" href="#checkout">Claim yours</a>
-        <a class="btn ghost" href="#places">See the rooms</a>
+        <a class="btn ghost" href="#places">See the scenes</a>
       </div>
     </div>
     <div class="stage">
@@ -177,23 +177,23 @@
 
   <div class="marquee"><div class="track" id="marquee"></div></div>
 
-  <section>
-    <div class="wrap">
-      <h2>A little about it</h2>
-      <p class="sub">Standing lamp, not a sticker. Black plinth, VI-shaped face, USB lead. Laptop, power bank, console dock, or a wall brick. The panel lights from the edge.</p>
-      <div class="grid three">
-        <article class="card"><div class="pad"><h3>The face</h3><p>Pink-to-violet sunset, palm silhouettes, a low city, and the stacked lettering. Readable from the couch.</p></div></article>
-        <article class="card"><div class="pad"><h3>The body</h3><p>Matte black base keeps it planted. Slim from the side, so a shelf still has room for the console.</p></div></article>
-        <article class="card"><div class="pad"><h3>The ship</h3><p>Packed in the US and sent to the address you put in. Add the gift box if you want it wrapped and shipping covered.</p></div></article>
-      </div>
-    </div>
-  </section>
-
   <section id="places">
     <div class="wrap">
-      <h2>Where you will use it</h2>
-      <p class="sub">Same lamp. Different nights. Tap any photo to open the big viewer.</p>
-      <div class="grid three" id="placesGrid"></div>
+      <h2>Where you will actually use it</h2>
+      <p class="sub">Same lamp. Different nights. Pick the room you already live in.</p>
+      <div class="grid three">
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/uT5A9.jpg" alt="Friday lock-in" data-open="5"><div class="pad"><h3>Friday lock-in</h3><p>Controller down, keyboard lit, city on the monitor. The lamp sits between you and the screen and makes the whole desk feel like a night drive.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/FBNRo.jpg" alt="Under the TV" data-open="6"><div class="pad"><h3>Under the TV</h3><p>Console on the lower shelf, lamp on top, sneakers to the right. The wall picks up the pink and the living room finally has a center.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/cgQBA.jpg" alt="On every stream" data-open="7"><div class="pad"><h3>On every stream</h3><p>Mic left, webcam up, skyline wallpaper behind. Viewers ask about the lamp before they ask about the game.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/mAERi.jpg" alt="After-hours pour" data-open="8"><div class="pad"><h3>After-hours pour</h3><p>Whiskey, ice, bottles behind. The counter reflects the panel. This is the lamp for the night the playlist stays on.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/H13op.jpg" alt="Palm-hour outside" data-open="9"><div class="pad"><h3>Palm-hour outside</h3><p>City behind the rail, drink on the right. You are not playing. You are just sitting in the same color as the lamp.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/O7LHx.jpg" alt="Show piece then drive" data-open="10"><div class="pad"><h3>Show piece, then drive</h3><p>Parked on a lit street for the photo. Dash washed pink, cable toward the console. Shoot it, then put it back on the desk.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/JvpMN.jpg" alt="The hero shot" data-open="0"><div class="pad"><h3>The hero shot</h3><p>This is the angle you see when you sit down. Lettering sharp, palms black against the sunset, base planted. The room does not need another poster.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/61hfW.jpg" alt="From the chair" data-open="1"><div class="pad"><h3>From the chair</h3><p>Low and slightly left, the way it looks when you lean back after a match. The glowing edge of the V is the thing your eye hits first.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/V5yOZ.jpg" alt="Unbox view" data-open="2"><div class="pad"><h3>Unbox view</h3><p>Cable coiled beside it. This is the photo you send the group chat the minute it lands. Gift box or not, it already looks finished.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/9qBk2.jpg" alt="How thin it is" data-open="3"><div class="pad"><h3>How thin it is</h3><p>From the side it is a slim lit slab. Shelf space stays free for the console, the plant, and the drink.</p></div></article>
+        <article class="card"><img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/pmvxC.jpg" alt="The other face" data-open="4"><div class="pad"><h3>The other face</h3><p>Turn it and the sunset still shows through. Useful if the desk faces the room, not you. Guests see the palms either way.</p></div></article>
+      </div>
     </div>
   </section>
 
@@ -300,17 +300,17 @@
 <script>
 const CONFIG = { unit:103, gift:25, paypal:"https://www.paypal.com/ncp/payment/N3VCA7EBNHDYA" };
 const shots = [
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/JvpMN.jpg", cap:"Front glow", title:"The hero shot", text:"The angle you see when you sit down. Lettering sharp, palms black against the sunset, base planted." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/61hfW.jpg", cap:"Low angle", title:"From the chair", text:"Low and slightly left, the way it looks when you lean back after a match." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/V5yOZ.jpg", cap:"Cable in frame", title:"Unbox view", text:"Cable coiled beside it. The photo you send the group chat the minute it lands." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/9qBk2.jpg", cap:"Side profile", title:"How thin it is", text:"A slim lit slab from the side. Shelf space stays free." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/pmvxC.jpg", cap:"Reverse glow", title:"The other face", text:"Turn it and the sunset still shows. Useful if the desk faces the room." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/uT5A9.jpg", cap:"Gaming desk", title:"Friday lock-in", text:"Controller down, keyboard lit, city on the monitor. The lamp sits between you and the screen." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/FBNRo.jpg", cap:"Media shelf", title:"Under the TV", text:"Console below, lamp above. The wall picks up the pink and the room has a center." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/cgQBA.jpg", cap:"Stream desk", title:"On every stream", text:"Mic left, webcam up, skyline behind. Viewers ask about the lamp first." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/mAERi.jpg", cap:"Home bar", title:"After-hours pour", text:"Glass, ice, bottles behind. The counter reflects the panel." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/H13op.jpg", cap:"Balcony night", title:"Palm-hour outside", text:"City behind the rail, drink on the right. Same color as the lamp." },
-  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/O7LHx.jpg", cap:"Parked dash", title:"Show piece, then drive", text:"Parked for the photo. Dash washed pink. Shoot it, then put it back on the desk." }
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/JvpMN.jpg", cap:"Front glow · desk ready", title:"The hero shot", text:"This is the angle you see when you sit down. Lettering sharp, palms black against the sunset, base planted. The room does not need another poster." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/61hfW.jpg", cap:"Low angle · edge light", title:"From the chair", text:"Low and slightly left, the way it looks when you lean back after a match. The glowing edge of the V is the thing your eye hits first." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/V5yOZ.jpg", cap:"Cable in frame", title:"Unbox view", text:"Cable coiled beside it. This is the photo you send the group chat the minute it lands. Gift box or not, it already looks finished." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/9qBk2.jpg", cap:"Side profile", title:"How thin it is", text:"From the side it is a slim lit slab. Shelf space stays free for the console, the plant, and the drink." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/pmvxC.jpg", cap:"Reverse glow", title:"The other face", text:"Turn it and the sunset still shows through. Useful if the desk faces the room, not you. Guests see the palms either way." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/uT5A9.jpg", cap:"Gaming desk", title:"Friday lock-in", text:"Controller down, keyboard lit, city on the monitor. The lamp sits between you and the screen and makes the whole desk feel like a night drive." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/FBNRo.jpg", cap:"Media shelf", title:"Under the TV", text:"Console on the lower shelf, lamp on top, sneakers to the right. The wall picks up the pink and the living room finally has a center." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/cgQBA.jpg", cap:"Stream desk", title:"On every stream", text:"Mic on the left, webcam up, skyline wallpaper behind. Viewers ask about the lamp before they ask about the game." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/mAERi.jpg", cap:"Home bar", title:"After-hours pour", text:"Whiskey, ice, bottles behind. The counter reflects the panel. This is the lamp for the night the playlist stays on." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/H13op.jpg", cap:"Balcony night", title:"Palm-hour outside", text:"City behind the rail, drink on the right. You are not playing. You are just sitting in the same color as the lamp." },
+  { src:"https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/O7LHx.jpg", cap:"Parked dash", title:"Show piece, then drive", text:"Parked on a lit street for the photo. Dash washed pink, cable toward the console. Shoot it, then put it back on the desk." }
 ];
 const money = n => "$" + n.toFixed(2);
 let index = 0;
@@ -335,11 +335,6 @@ shots.forEach((s, i) => {
   thumbs.appendChild(b);
 });
 show(0);
-document.getElementById("placesGrid").innerHTML = shots.slice(5).map((s, i) => `
-  <article class="card">
-    <img src="${s.src}" alt="${s.title}" data-open="${i + 5}">
-    <div class="pad"><h3>${s.title}</h3><p>${s.text}</p></div>
-  </article>`).join("");
 document.getElementById("marquee").textContent = Array(2).fill("USB POWERED   ·   $103 LAMP   ·   SHIPS FROM THE US   ·   GIFT BOX + FREE SHIPPING $25   ·   PAYPAL CHECKOUT").join("   ·   ");
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lbImg");
