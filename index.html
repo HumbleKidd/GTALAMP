@@ -142,6 +142,41 @@
   }
   .toast { position:fixed; top:76px; left:12px; right:12px; background:#14101c; color:#fff; padding:12px 14px; border-radius:14px; display:none; z-index:80; }
   footer { padding:18px 0 20px; color:var(--muted); font-size:13px; }
+
+  .dice-card { margin-top:14px; border-radius:22px; padding:14px; background:#fff7fb; border:1px solid #ffd0e6; }
+  .dice-top { display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .tries { display:flex; gap:6px; margin-top:8px; }
+  .pip { width:14px; height:14px; border-radius:50%; background:#f3d5e6; }
+  .pip.on { background:linear-gradient(135deg,var(--pink),var(--violet)); }
+  .pip.win { background:#17a35a; }
+  .dice-slot { height:104px; margin:8px 0 0; overflow:hidden; position:relative; border-radius:14px; }
+  .scene3d { height:104px; display:flex; align-items:center; justify-content:center; perspective:420px; }
+  .cube { width:64px; height:64px; position:relative; transform-style:preserve-3d; will-change:transform; }
+  .cube.rest { display:none; }
+  .face, .flat { width:64px; height:64px; border-radius:12px; background:#fff; border:1px solid #ecd3e0; display:grid; grid-template-columns:repeat(3,1fr); padding:8px; }
+  .face { position:absolute; }
+  .flat { display:none; }
+  .flat.show { display:grid; }
+  .face i, .flat i { width:10px; height:10px; border-radius:50%; background:#1b1228; justify-self:center; align-self:center; opacity:0; }
+  .face i.on, .flat i.on { opacity:1; }
+  .f1 { transform:rotateY(0deg) translateZ(32px); }
+  .f2 { transform:rotateY(180deg) translateZ(32px); }
+  .f3 { transform:rotateY(90deg) translateZ(32px); }
+  .f4 { transform:rotateY(-90deg) translateZ(32px); }
+  .f5 { transform:rotateX(90deg) translateZ(32px); }
+  .f6 { transform:rotateX(-90deg) translateZ(32px); }
+  .luck { text-align:center; font-weight:800; min-height:22px; margin-top:6px; }
+  .shot-note { background:#fff6fb; border:1px dashed #f3b7d4; border-radius:16px; padding:12px; margin-top:12px; }
+  .shot-note b { display:block; margin-bottom:4px; }
+  .ok-banner { display:none; background:#eefbf3; border:1px solid #b7ebc9; color:#0d6b3c; border-radius:16px; padding:12px; margin-top:10px; font-weight:700; }
+  .ok-banner.show { display:block; }
+  .policy { display:grid; gap:12px; }
+  .policy article { background:#fff; border:1px solid #f3e3ee; border-radius:20px; padding:16px; }
+  .policy h3 { margin:0 0 8px; }
+  .policy li { color:#554b62; font-size:14px; margin:6px 0; }
+  .file-pill { display:flex; align-items:center; gap:8px; border:1px dashed #e7b7cf; border-radius:14px; padding:12px; background:#fff; cursor:pointer; margin-top:8px; }
+  .file-pill input { display:none; }
+  .mail-preview { background:#fffafc; border:1px solid #ecd7e4; border-radius:14px; padding:10px 12px; font-size:14px; margin:8px 0; }
   @media (min-width:760px) {
     .nav-links { display:flex; }
     .hero { grid-template-columns:1.05fr .95fr; align-items:center; padding-top:36px; gap:28px; }
@@ -151,6 +186,7 @@
     .specs { grid-template-columns:repeat(4,1fr); }
     .row.two { grid-template-columns:1fr 1fr; }
     .checkout { grid-template-columns:1.1fr .9fr; align-items:start; }
+    .policy { grid-template-columns:1fr 1fr; }
     .dock { display:none; }
     body { padding-bottom:0; }
     .toast { left:auto; right:16px; width:320px; }
@@ -164,8 +200,11 @@
     <a class="brand" href="#top"><span class="mark"><i class="fa-solid fa-bolt"></i></span> Opulent Lamp</a>
     <nav class="nav-links">
       <a href="#places">Scenes</a>
+      <a href="#gift">Gift box</a>
+      <a href="#policy">Shipping</a>
       <a href="#checkout">Checkout</a>
     </nav>
+    <button class="btn ghost slim" id="shareBtn" type="button" style="padding:10px 14px;"><i class="fa-solid fa-share-nodes"></i> Share</button>
     <a class="btn" href="#checkout" id="navBuy">Buy · $103.00</a>
   </div>
 </header>
@@ -207,8 +246,27 @@
   <section id="places">
     <div class="wrap">
       <h2>Where you will actually use it</h2>
-      <p class="sub">Same lamp. Different nights. Tap a scene to open it big.</p>
-      <div class="grid three" id="placesGrid"></div>
+      <p class="sub">Same lamp. Different nights. Tap a scene to open it big. The page stays put.</p>
+      <div class="grid three" id="placesTop"></div>
+    </div>
+  </section>
+  <section id="gift">
+    <div class="wrap">
+      <h2>Add the gift box</h2>
+      <p class="sub">$25 once on the order, not per lamp. Shipping on that order is free.</p>
+      <div class="specs">
+        <div class="spec"><i class="fa-solid fa-gift"></i><b>Comes wrapped</b><span class="fine">Gift box instead of a plain mailer.</span></div>
+        <div class="spec"><i class="fa-solid fa-truck"></i><b>Shipping covered</b><span class="fine">Tick it and shipping on the order is free.</span></div>
+        <div class="spec"><i class="fa-solid fa-layer-group"></i><b>One fee</b><span class="fine">Two lamps is still $25.</span></div>
+        <div class="spec"><i class="fa-solid fa-pen"></i><b>Gift line</b><span class="fine">Put a short message in the delivery note.</span></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <h2>More setups</h2>
+      <p class="sub">Stream desk, bar, balcony, car. Tap to open.</p>
+      <div class="grid three" id="placesRest"></div>
     </div>
   </section>
 
@@ -237,14 +295,12 @@
           <div class="row two">
             <div><label>Phone</label><input name="phone" id="fPhone" required placeholder="+1 ..." autocomplete="tel" /></div>
             <div><label>Country</label>
-              <select name="country" id="country">
-                <option>United States</option><option>Canada</option><option>United Kingdom</option><option>Jamaica</option><option>Other</option>
-              </select>
+              <select name="country" id="country" required><option value="">Loading countries…</option></select>
             </div>
           </div>
           <div class="row two">
-            <div><label>State</label><input name="region" id="fRegion" required placeholder="Florida" autocomplete="address-level1" /></div>
-            <div><label>City</label><input name="city" id="fCity" required placeholder="Miami" autocomplete="address-level2" /></div>
+            <div><label>State</label><select name="region" id="fRegion" required><option value="">Pick a country first</option></select></div>
+            <div><label>City</label><select name="city" id="fCity" required><option value="">Pick a state first</option></select></div>
           </div>
           <label>Street address</label>
           <input name="address" id="fAddress" required placeholder="House number and street" autocomplete="street-address" />
@@ -266,9 +322,27 @@
               <span>Wrapped box, packed to gift, shipping covered on this order.</span>
             </div>
           </label>
+          <div class="dice-card">
+            <div class="dice-top">
+              <div>
+                <b>Spin to Win</b>
+                <div class="fine" id="diceHint">Try your luck. You may qualify for a discount. 6 on the dice is $45 off. 3 on the dice is $25 off. Spin to Win!</div>
+                <div class="tries" id="tries"></div>
+              </div>
+              <button class="btn" id="shakeBtn" type="button" style="padding:10px 14px;"><i class="fa-solid fa-dice"></i> Spin</button>
+            </div>
+            <div class="dice-slot"><div class="scene3d"><div class="cube" id="cube"></div><div class="flat" id="flatDie"></div></div></div>
+            <div class="luck" id="luck"></div>
+          </div>
           <label>Delivery note</label>
           <textarea name="note" id="fNote" rows="3" placeholder="Gate code, gift message, best time"></textarea>
           <div class="sum" id="sum"></div>
+          <div class="shot-note">
+            <b>After payment is made, please confirm by uploading your invoice here.</b>
+            <span class="fine">Screenshot the payment, attach it, and send. The email address is not shown on this page. You will see a confirmation here after it goes out.</span>
+            <button class="btn ghost full" id="openInvoice" type="button" style="margin-top:10px;"><i class="fa-solid fa-file-arrow-up"></i> Upload invoice</button>
+            <div class="ok-banner" id="sentOk">Invoice sent. We will match it to the payment and email tracking to the address on this order.</div>
+          </div>
           <p class="err" id="formErr"></p>
           <button class="btn full" id="payBtn" type="submit"><i class="fa-brands fa-paypal"></i> <span id="payLabel">Review & pay $103.00</span></button>
           <p class="fine">Next screen shows the lamps, gift box, ship-to, and total before PayPal opens. The PayPal.me amount matches that total. Paste the copied order note into PayPal’s “What’s this for?” field so the pack matches the payment.</p>
@@ -279,14 +353,45 @@
           <img src="https://raw.githubusercontent.com/HumbleKidd/GTA-IV-LAMP/main/V5yOZ.jpg" alt="Lamp with USB cable" />
           <div class="pad">
             <h3>Live order slip</h3>
-            <p id="slip">Change quantity or tick the gift box. This slip updates before you pay.</p>
-            <p class="fine" id="code">PayPal.me/regalrecline · amount follows the total.</p>
+            <div class="price" id="slipTotal" style="font-size:32px;margin:6px 0;">$103.00</div>
+            <p id="slip" style="white-space:pre-wrap;">Change quantity or tick the gift box. This slip updates before you pay.</p>
+            <p class="fine" id="code">Ships from the United States. Total follows what you pick.</p>
+            <button class="btn ghost full" id="shareBtn3" type="button" style="margin-top:10px;"><i class="fa-solid fa-share-nodes"></i> Share this lamp</button>
           </div>
         </div>
       </aside>
     </div>
   </section>
 
+  <section id="policy">
+    <div class="wrap">
+      <h2>Shipping and returns</h2>
+      <p class="sub">What happens after you pay.</p>
+      <div class="policy">
+        <article>
+          <h3>Shipping</h3>
+          <ul>
+            <li>Every order ships from the United States.</li>
+            <li>We pack it after the payment screenshot matches the order.</li>
+            <li>US orders usually hand off in 1 to 3 business days. Most arrive in about a week.</li>
+            <li>Other countries ship from the same desk. Any duty is billed by the carrier, not by us.</li>
+            <li>Gift box is $25 once and shipping on that order is free.</li>
+            <li>No gift box means shipping is extra. We send the cost and wait for a yes before the label prints.</li>
+            <li>A full street, city, state, and ZIP is required. A bad address that comes back is a reship on the buyer.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Refunds and returns</h3>
+          <ul>
+            <li>Dead panel, cracked face, or damage in the box: photo it the day it arrives and send it with the payment screenshot. We replace it or refund it. You do not pay return shipping unless we ask for the lamp back.</li>
+            <li>Changed your mind: tell us within 14 days of delivery. Unused, in the original box. You pay the return shipping. Refund goes back to the same payment after it reaches us.</li>
+            <li>No refund if it was dropped after delivery or returned without the panel and cable.</li>
+            <li>Fan-made lamp, not a Rockstar product. “Not official” is not a return reason.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
   <section class="faq">
     <div class="wrap">
       <h2>Before you pay</h2>
@@ -295,10 +400,18 @@
       <details><summary>How does the PayPal amount work?</summary><p>Lamp is $103 each. Gift box is $25 once per order. PayPal.me/regalrecline opens with the order total already filled. The note you paste lists quantity, gift box, and ship-to.</p></details>
       <details><summary>How do I look through the photos?</summary><p>Tap a thumbnail or a scene card. Tap the large photo to enlarge, then swipe or use the arrows.</p></details>
       <details><summary>Is this official?</summary><p>Fan-made desk lamp inspired by the GTA VI look. Not a Rockstar product.</p></details>
+      <details><summary>How does the dice work?</summary><p>6 spins. 6 on the dice is $45 off. 3 on the dice is $25 off. Other numbers are a miss. One discount per order. A reload starts the spins over.</p></details>
+      <details>
+        <summary>Where do I show proof of payment?</summary>
+        <p>After you pay, screenshot the confirmation. Use the upload box here or the one in checkout. Attach the screenshot and send. The email address is not shown on this page. Tracking goes to the email on the order after it matches.</p>
+        <label class="file-pill" for="invoiceFileFaq"><i class="fa-solid fa-paperclip"></i> <span id="fileNameFaq">Choose the screenshot</span><input id="invoiceFileFaq" type="file" accept="image/*,.pdf" /></label>
+        <button class="btn full" id="openInvoiceFaq" type="button" style="margin-top:8px;"><i class="fa-solid fa-file-arrow-up"></i> Upload invoice</button>
+      </details>
+      <details><summary>Can I return it?</summary><p>Damage on arrival is replaced or refunded if you photo it the day it arrives. Change of mind is 14 days, unused, in the box, and you pay the return shipping.</p></details>
     </div>
   </section>
 </main>
-<footer><div class="wrap">GTA VI Opulent Lamp · $103 · ships from the US · fan-made · payments finish on PayPal.me/regalrecline.</div></footer>
+<footer><div class="wrap">GTA VI Opulent Lamp · $103 · ships from the US · fan-made · fan-made desk lamp. Not a Rockstar product.</div></footer>
 <div class="dock">
   <div><b id="dockPrice">$103.00</b><div class="fine" id="dockNote">1 lamp</div></div>
   <a class="btn" href="#checkout">Buy now</a>
@@ -322,6 +435,21 @@
     <p class="fine">This note is copied when you continue. Paste it into PayPal’s note so the order shows the lamp, quantity, gift box, and address.</p>
     <button class="btn full" id="confirmPay" type="button"><i class="fa-brands fa-paypal"></i> <span id="confirmLabel">Continue to PayPal</span></button>
     <button class="btn ghost full" id="sheetClose" type="button" style="margin-top:8px;">Back to order</button>
+  </div>
+</div>
+
+<div class="sheet" id="mailSheet" aria-hidden="true">
+  <div class="sheet-card" role="dialog" aria-modal="true">
+    <h3>Send the invoice</h3>
+    <p class="sub">Attach the payment screenshot. Send opens your mail app. The address is not shown here.</p>
+    <div class="mail-preview"><b>To</b><div>Order desk</div></div>
+    <div class="mail-preview"><b>Subject</b><div id="mailSubject">Opulent Lamp invoice</div></div>
+    <label class="file-pill" for="invoiceFile"><i class="fa-solid fa-paperclip"></i> <span id="fileName">Choose the screenshot</span><input id="invoiceFile" type="file" accept="image/*,.pdf" /></label>
+    <label>Message</label>
+    <textarea id="mailBody" rows="7"></textarea>
+    <p class="err" id="mailErr"></p>
+    <button class="btn full" id="sendInvoice" type="button">Send invoice</button>
+    <button class="btn ghost full" id="mailClose" type="button" style="margin-top:8px;">Close</button>
   </div>
 </div>
 <div class="toast" id="toast"></div>
@@ -363,7 +491,7 @@ function show(i) {
   cap.textContent = shot.cap + " · tap to enlarge";
   [...thumbs.children].forEach((b, n) => b.classList.toggle("active", n === index));
   const active = thumbs.children[index];
-  if (active) active.scrollIntoView({ inline:"center", block:"nearest", behavior:"smooth" });
+  if (active) thumbs.scrollTo({ left: Math.max(0, active.offsetLeft - (thumbs.clientWidth - active.clientWidth) / 2), behavior: "smooth" });
   if (lightbox.classList.contains("open")) paintLb();
 }
 function paintLb() {
@@ -393,13 +521,11 @@ shots.forEach((s, i) => {
   b.addEventListener("click", (e) => { e.stopPropagation(); show(i); });
   thumbs.appendChild(b);
 });
-$("placesGrid").innerHTML = shots.map((s, i) => `
-  <article class="card shot" data-open="${i}">
-    <img src="${s.src}" alt="${s.title}">
-    <div class="pad"><h3>${s.title}</h3><p>${s.text}</p></div>
-  </article>`).join("");
+const cardHtml = (s, i) => `<article class="card shot" data-open="${i}"><img src="${s.src}" alt="${s.title}"><div class="pad"><h3>${s.title}</h3><p>${s.text}</p></div></article>`;
+$("placesTop").innerHTML = shots.slice(0, 4).map((s, i) => cardHtml(s, i)).join("");
+$("placesRest").innerHTML = shots.slice(4).map((s, i) => cardHtml(s, i + 4)).join("");
 show(0);
-$("marquee").textContent = Array(2).fill("USB POWERED   ·   $103 LAMP   ·   SHIPS FROM THE US   ·   GIFT BOX + FREE SHIPPING $25   ·   PAYPAL.ME/REGALRECLINE").join("   ·   ");
+$("marquee").textContent = Array(2).fill("USB POWERED   ·   $103 LAMP   ·   SHIPS FROM THE US   ·   GIFT BOX + FREE SHIPPING $25   ·   DESK, SHELF, STREAM   ·   BLACK BASE   ·   LIT VI PANEL").join("   ·   ");
 
 $("frame").addEventListener("click", () => openLb(index));
 $("frame").addEventListener("keydown", (e) => {
@@ -441,7 +567,8 @@ function quote() {
   const g = gift.checked;
   const lamps = CONFIG.unit * q;
   const extra = g ? CONFIG.gift : 0;
-  return { q, g, lamps, extra, total: lamps + extra };
+  const cut = (window.fate && fate.discount) || 0;
+  return { q, g, lamps, extra, cut, total: Math.max(0, lamps + extra - cut) };
 }
 function orderFields() {
   return {
@@ -461,6 +588,7 @@ function purchaseNote(code, data, qte) {
     code + " · GTA VI Opulent Lamp",
     "Item: GTA VI Opulent Lamp × " + qte.q + " @ $103.00 = " + money(qte.lamps),
     "Gift box + free shipping: " + (qte.g ? "YES $25.00" : "NO"),
+    qte.cut ? "Discount: -" + money(qte.cut) : "Discount: none",
     "Total: " + money(qte.total) + " USD",
     "Ship from: United States",
     "Ship to: " + [data.name, data.address, data.city, data.region, data.postal, data.country].filter(Boolean).join(", "),
@@ -474,6 +602,7 @@ function drawSum() {
   sum.innerHTML =
     `<div><span>GTA VI Opulent Lamp × ${qte.q}</span><b>${money(qte.lamps)}</b></div>` +
     `<div><span>Gift box + free shipping</span><b>${qte.g ? money(qte.extra) : "Not added"}</b></div>` +
+    `<div><span>Discount</span><b>${qte.cut ? "-" + money(qte.cut) : "None"}</b></div>` +
     `<div class="total"><span>Order total</span><b>${money(qte.total)}</b></div>` +
     `<div><span>Ships from</span><b>United States</b></div>` +
     `<div><span>PayPal receives</span><b>${money(qte.total)} USD</b></div>`;
@@ -493,7 +622,8 @@ function drawSum() {
     "Gift box + free shipping: " + (qte.g ? "YES · $25.00" : "NO") + "\n" +
     "Total: " + money(qte.total) + "\n" +
     (data.address ? data.address + ", " + data.city + ", " + data.region + " " + data.postal + ", " + data.country : "Address fills in as you type");
-  $("code").textContent = "PayPal.me/regalrecline/" + qte.total.toFixed(2) + "USD";
+  $("slipTotal").textContent = money(qte.total);
+  $("code").textContent = "Ships from the United States. Pay " + money(qte.total) + ".";
 }
 $("minus").addEventListener("click", () => { qty.value = Math.max(1, (parseInt(qty.value, 10) || 1) - 1); drawSum(); });
 $("plus").addEventListener("click", () => { qty.value = Math.min(20, (parseInt(qty.value, 10) || 1) + 1); drawSum(); });
@@ -558,6 +688,127 @@ $("confirmPay").addEventListener("click", async () => {
   $("confirmPay").disabled = true;
   setTimeout(() => { window.location.href = url; }, 400);
 });
+
+const pips = { 1:[4], 2:[0,8], 3:[0,4,8], 4:[0,2,6,8], 5:[0,2,4,6,8], 6:[0,2,3,5,6,8] };
+const cube = $("cube");
+[1,2,3,4,5,6].forEach((n) => {
+  const face = document.createElement("div");
+  face.className = "face f" + n;
+  for (let p = 0; p < 9; p++) { const dot = document.createElement("i"); if (pips[n].includes(p)) dot.className = "on"; face.appendChild(dot); }
+  cube.appendChild(face);
+});
+function showFlat(n) {
+  const flat = $("flatDie");
+  flat.innerHTML = "";
+  for (let p = 0; p < 9; p++) { const dot = document.createElement("i"); if (pips[n].includes(p)) dot.className = "on"; flat.appendChild(dot); }
+  flat.classList.add("show");
+  cube.classList.add("rest");
+}
+try { localStorage.removeItem("opulent-fate-v1"); } catch (e) {}
+const winAt = Math.floor(Math.random() * 6);
+const winFace = Math.random() < 0.5 ? 3 : 6;
+const misses = [1,2,4,5];
+window.fate = { seq: Array.from({length:6}, (_, i) => i === winAt ? winFace : misses[Math.floor(Math.random()*4)]), used: 0, discount: 0 };
+let spinning = false;
+function paintTries() {
+  $("tries").innerHTML = Array.from({length:6}, (_, i) => `<span class="${i < fate.used ? ((fate.seq[i]===3||fate.seq[i]===6) ? "pip win" : "pip on") : "pip"}"></span>`).join("");
+  if (fate.discount || fate.used >= 6) $("shakeBtn").disabled = true;
+}
+function spinTo(face, done) {
+  cube.classList.remove("rest");
+  $("flatDie").classList.remove("show");
+  const start = performance.now();
+  const dur = 1700;
+  const turns = 5 + Math.random()*2;
+  function frame(now) {
+    const t = Math.min(1, (now-start)/dur);
+    const ease = 1 - Math.pow(1-t, 3);
+    const wobble = Math.sin(t*18)*(1-t)*20;
+    cube.style.transform = `rotateX(${ease*turns*360+wobble}deg) rotateY(${ease*turns*480}deg)`;
+    if (t < 1) requestAnimationFrame(frame);
+    else { showFlat(face); done(); }
+  }
+  requestAnimationFrame(frame);
+}
+$("shakeBtn").addEventListener("click", () => {
+  if (spinning || fate.discount || fate.used >= 6) return;
+  spinning = true; $("shakeBtn").disabled = true;
+  const face = fate.seq[fate.used]; fate.used += 1;
+  spinTo(face, () => {
+    if (face === 6 || face === 3) { fate.discount = face === 6 ? 45 : 25; $("luck").textContent = face + " · $" + fate.discount + " off"; toast(face + " on the dice. $" + fate.discount + " off."); }
+    else { $("luck").textContent = face + " · no discount · " + (6-fate.used) + " left"; if (fate.used < 6) $("shakeBtn").disabled = false; }
+    paintTries(); drawSum(); spinning = false;
+  });
+});
+paintTries();
+const FALLBACK = {"United States":["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming","District of Columbia"],"Canada":["Alberta","British Columbia","Manitoba","New Brunswick","Newfoundland and Labrador","Nova Scotia","Ontario","Prince Edward Island","Quebec","Saskatchewan"],"United Kingdom":["England","Scotland","Wales","Northern Ireland"],"Jamaica":["Clarendon","Hanover","Kingston","Manchester","Portland","Saint Andrew","Saint Ann","Saint Catherine","Saint Elizabeth","Saint James","Saint Mary","Saint Thomas","Trelawny","Westmoreland"]};
+function fillSelect(el, items, placeholder) { el.innerHTML = `<option value="">${placeholder}</option>` + items.map(n => `<option>${n}</option>`).join(""); }
+async function loadStates() {
+  const country = $("country").value;
+  if (!country) return;
+  if (FALLBACK[country]) { fillSelect($("fRegion"), FALLBACK[country], "Select state"); fillSelect($("fCity"), [], "Pick a state first"); drawSum(); return; }
+  try {
+    const res = await fetch("https://countriesnow.space/api/v0.1/countries/states", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({country})});
+    const data = await res.json();
+    fillSelect($("fRegion"), ((data.data&&data.data.states)||[]).map(s=>s.name).filter(Boolean), "Select state");
+  } catch (e) { fillSelect($("fRegion"), ["Other"], "Select state"); }
+  fillSelect($("fCity"), [], "Pick a state first"); drawSum();
+}
+async function loadCities() {
+  const country = $("country").value, state = $("fRegion").value;
+  if (!state) return;
+  try {
+    const res = await fetch("https://countriesnow.space/api/v0.1/countries/state/cities", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({country, state})});
+    const data = await res.json();
+    fillSelect($("fCity"), data.data||[], "Select city");
+  } catch (e) { fillSelect($("fCity"), ["Other"], "Select city"); }
+  drawSum();
+}
+async function loadCountries() {
+  try {
+    const res = await fetch("https://countriesnow.space/api/v0.1/countries/iso");
+    const data = await res.json();
+    const names = (data.data||[]).map(c=>c.name).filter(Boolean).sort((a,b)=>a.localeCompare(b));
+    fillSelect($("country"), names.length?names:Object.keys(FALLBACK), "Select country");
+  } catch (e) { fillSelect($("country"), Object.keys(FALLBACK), "Select country"); }
+  $("country").value = "United States";
+  await loadStates();
+}
+$("country").addEventListener("change", loadStates);
+$("fRegion").addEventListener("change", loadCities);
+loadCountries();
+let invoiceFile = null;
+function closeMail() { $("mailSheet").classList.remove("open"); if (!$("lightbox").classList.contains("open")) document.body.style.overflow = ""; }
+$("mailClose").addEventListener("click", closeMail);
+$("mailSheet").addEventListener("click", (e) => { if (e.target === $("mailSheet")) closeMail(); });
+function openMail(file) {
+  invoiceFile = file || invoiceFile;
+  const data = orderFields(), qte = quote();
+  const code = pending ? pending.code : "OPL-PENDING";
+  $("mailSubject").textContent = code + " · Opulent Lamp invoice";
+  $("mailBody").value = purchaseNote(code, data, qte) + "\n\nScreenshot attached.";
+  $("mailErr").textContent = "";
+  $("mailSheet").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+$("invoiceFile").addEventListener("change", () => { invoiceFile = $("invoiceFile").files[0] || null; $("fileName").textContent = invoiceFile ? invoiceFile.name : "Choose the screenshot"; });
+$("invoiceFileFaq").addEventListener("change", () => { invoiceFile = $("invoiceFileFaq").files[0] || null; $("fileNameFaq").textContent = invoiceFile ? invoiceFile.name : "Choose the screenshot"; if (invoiceFile) $("fileName").textContent = invoiceFile.name; });
+$("openInvoice").addEventListener("click", () => openMail($("invoiceFile").files[0]));
+$("openInvoiceFaq").addEventListener("click", () => openMail($("invoiceFileFaq").files[0]));
+$("sendInvoice").addEventListener("click", () => {
+  if (!invoiceFile) { $("mailErr").textContent = "Attach the screenshot first."; return; }
+  window.location.href = "mailto:regalrecline@gmail.com?subject=" + encodeURIComponent($("mailSubject").textContent) + "&body=" + encodeURIComponent($("mailBody").value);
+  $("sentOk").classList.add("show");
+  closeMail();
+  toast("Mail opened. Send it, then you are done on this page.");
+});
+async function sharePage() {
+  try { if (navigator.share) { await navigator.share({ title:"GTA VI Opulent Lamp", text:"USB desk lamp, $103, ships from the US.", url: location.href }); return; } } catch (e) { if (e && e.name === "AbortError") return; }
+  try { await navigator.clipboard.writeText(location.href); toast("Link copied."); } catch (e) { toast(location.href); }
+}
+$("shareBtn").addEventListener("click", sharePage);
+$("shareBtn3").addEventListener("click", sharePage);
+
 </script>
 </body>
 </html>
